@@ -3,6 +3,7 @@ from loader import dp
 from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
 from aiogram.types import ReplyKeyboardRemove
+from aiogram.dispatcher.filters import Regexp
 
 from states.personalInfo import PersonalInfo
 
@@ -29,8 +30,9 @@ async def answer_first_name(message: types.Message, state: FSMContext):
     await message.answer("The letter will be sent to you via email. Please, share your email")
     await PersonalInfo.email.set()
 
+EMAIL_REGEX = r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'
 
-@dp.message_handler(state=PersonalInfo.email)
+@dp.message_handler(Regexp(EMAIL_REGEX), state=PersonalInfo.email)
 async def answer_first_name(message: types.Message, state: FSMContext):
     email = message.text
     await state.update_data(
@@ -39,6 +41,12 @@ async def answer_first_name(message: types.Message, state: FSMContext):
 
     await message.answer("Choose university :", reply_markup=university_list)
     await PersonalInfo.university.set()
+
+@dp.message_handler(state=PersonalInfo.email)
+async def answer_first_name(message: types.Message, state: FSMContext):
+
+    await message.answer("Invalid email format. Please, enter valid email!")
+    await PersonalInfo.email.set()
 
 
 @dp.callback_query_handler(lambda c: c.data in ['stanford', 'harvard', 'yale', 'nyuad', 'uchicago', 'princeton', 'dartmouth', 'duke'], state=PersonalInfo.university)
