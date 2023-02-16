@@ -4,6 +4,7 @@ from keyboards.default.make_decisionKeyboard import make_decision
 
 GIRLS = [5816759846, 105057764, 775433231, 538800450, 430853870, 727487571, 1029746208, 1714255322, 794134904, 1997168961, 5572243095, 951931338, 1378248439, 748242055]
 
+
 #GIRLS
 @dp.message_handler(chat_id=GIRLS, commands='start')
 async def valera(message: types.Message):
@@ -25,10 +26,6 @@ async def valera(message: types.Message):
 async def valera(message: types.Message):
     await message.answer(f"<b>Hey, Asadchik, surprised?</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
-#thself
-@dp.message_handler(chat_id="871034682", commands='start')
-async def valera(message: types.Message):
-    await message.answer(f"<b>Hey, MK. Yeah, tapping into people's emotions feel a little wrong</b>. \nYou doing good? \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 #Donik
 @dp.message_handler(chat_id="417933861", commands='start')
