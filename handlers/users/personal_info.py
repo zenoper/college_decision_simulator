@@ -12,6 +12,7 @@ from keyboards.inline.choose_decisionKeyboard import decision_type_keyboard
 from keyboards.inline.confirm_editKeyboard import confirm_edit
 
 from keyboards.default.make_decisionKeyboard import make_decision
+from utils.misc.send_email import send_email
 
 
 @dp.message_handler(text="Make Decision")
@@ -95,4 +96,13 @@ async def edit_query(call: CallbackQuery, state: FSMContext):
 async def confirm_query(call: CallbackQuery, state: FSMContext):
     await call.message.answer("Alright! Please, check your email inbox :)", reply_markup=make_decision)
     await call.answer(cache_time=60)
+
+    info = await state.get_data()
+    first_name = info.get('first_name')
+    email = info.get('email')
+    university = info.get('university')
+    decision = info.get('decision_type')
+
+    send_email(sender_email="mukhammadkodirmakhmudjanov@gmail.com", receiver_email=email, subject="View Update to your Application!", smtp_username="onlinefood.django@gmail.com", smtp_password="ylsdaagkbupszejw")
+
     await state.finish()
