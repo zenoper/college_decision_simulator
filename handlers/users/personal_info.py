@@ -33,6 +33,7 @@ async def answer_first_name(message: types.Message, state: FSMContext):
 
 EMAIL_REGEX = r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'
 
+
 @dp.message_handler(Regexp(EMAIL_REGEX), state=PersonalInfo.email)
 async def answer_first_name(message: types.Message, state: FSMContext):
     email = message.text
@@ -43,8 +44,9 @@ async def answer_first_name(message: types.Message, state: FSMContext):
     await message.answer("Choose university :", reply_markup=university_list)
     await PersonalInfo.university.set()
 
+
 @dp.message_handler(state=PersonalInfo.email)
-async def answer_first_name(message: types.Message, state: FSMContext):
+async def answer_first_name(message: types.Message):
 
     await message.answer("Invalid email format. Please, enter valid email!")
     await PersonalInfo.email.set()
@@ -102,7 +104,8 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     email = info.get('email')
     university = info.get('university')
     decision = info.get('decision_type')
+    university_cap = university.capitalize()
 
-    send_email(sender_email="mukhammadkodirmakhmudjanov@gmail.com", receiver_email=email, subject="View Update to your Application!", smtp_username="onlinefood.django@gmail.com", smtp_password="ylsdaagkbupszejw")
+    send_email(sender_name=university_cap, sender_email="onlinefood.django@gmail.com", receiver_email=email, first_name=first_name, decision=decision, university=university)
 
     await state.finish()
