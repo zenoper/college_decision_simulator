@@ -8,13 +8,13 @@ GIRLS = [5816759846, 105057764, 775433231, 538800450, 430853870, 727487571, 1029
 #GIRLS
 @dp.message_handler(chat_id=GIRLS, commands='start')
 async def valera(message: types.Message):
-    await message.answer(f"<b>Oh, another beautiful lady :)</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await message.answer(f"<b>Oh, another beautiful lady :) Soon, my horrors should become my delight</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 
 #Valera
 @dp.message_handler(chat_id="178942136", commands='start')
 async def valera(message: types.Message):
-    await message.answer(f"<b>Hey, Valerchik, are you not surprised? \nYes, you are :)</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await message.answer(f"<b>Hey, Andrew Tate is the real TOPG, not socrates :)</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 #Abdulloh
 @dp.message_handler(chat_id="718229036", commands='start')
@@ -35,7 +35,7 @@ async def valera(message: types.Message):
 #Rustam
 @dp.message_handler(chat_id="933388976", commands='start')
 async def valera(message: types.Message):
-    await message.answer(f"<b>It seems you really hurt the feelings of your friends. You don't deserve to use the actual purpose of this bot as you lost yours. But, if you want to:</b> \nRepeat after me.... \nAshhadu alla....")
+    await message.answer(f"<b>It seems you don't deserve to use the actual purpose of this bot as you lost yours. But, if you want to:</b> \nRepeat after me.... \nAshhadu alla....")
 
 
 #Malika
@@ -62,7 +62,7 @@ async def valera(message: types.Message):
 #Javohir Utkirov
 @dp.message_handler(chat_id="801154063", commands='start')
 async def valera(message: types.Message):
-    await message.answer(f"<b>What's up American boy? How did you get that good IELTS speaking score?</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await message.answer(f"<b>What's up American boy? How is your edu academy doing?</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 #Kamol
 @dp.message_handler(chat_id="923225671", commands='start')
