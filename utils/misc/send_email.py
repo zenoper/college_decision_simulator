@@ -8,10 +8,10 @@ env.read_env()
 
 university_dictionary = {
     'acceptance': {
-        'harvard': 'utils/misc/decision_letters/harvard_acceptance.html'
+        'harvard': 'utils/misc/decision_letters/Harvard/harvard_acceptance.html'
     },
     'rejection': {
-        'harvard': 'utils/misc/decision_letters/harvard_rejection.html'
+        'harvard': 'utils/misc/decision_letters/Harvard/harvard_rejection.html'
     }
 }
 

@@ -2,14 +2,13 @@ from aiogram import types
 from loader import dp
 from keyboards.default.make_decisionKeyboard import make_decision
 
-GIRLS = [5816759846, 105057764, 775433231, 538800450, 430853870, 727487571, 1029746208, 1714255322, 794134904, 1997168961, 5572243095, 951931338, 1378248439, 748242055]
+GIRLS = [5816759846, 105057764, 719304456, 775433231, 538800450, 430853870, 727487571, 1029746208, 1714255322, 794134904, 1997168961, 5572243095, 951931338, 1378248439, 748242055]
 
 
 #GIRLS
 @dp.message_handler(chat_id=GIRLS, commands='start')
 async def valera(message: types.Message):
-    await message.answer(f"<b>Oh, another beautiful lady :) Soon, my horrors should become my delight</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
-
+    await message.answer(f"<b>Oh, another beautiful lady :)</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 #Valera
 @dp.message_handler(chat_id="178942136", commands='start')
@@ -36,12 +35,6 @@ async def valera(message: types.Message):
 @dp.message_handler(chat_id="933388976", commands='start')
 async def valera(message: types.Message):
     await message.answer(f"<b>It seems you don't deserve to use the actual purpose of this bot as you lost yours. But, if you want to:</b> \nRepeat after me.... \nAshhadu alla....")
-
-
-#Malika
-@dp.message_handler(chat_id="719304456", commands='start')
-async def valera(message: types.Message):
-    await message.answer(f"<b>Oh, the beautiful lady with a loving heart! also, a Cat lover</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 #Aleksandr
 @dp.message_handler(chat_id="249794047", commands='start')
