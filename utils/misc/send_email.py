@@ -15,7 +15,7 @@ university_dictionary = {
         'duke': 'utils/misc/decision_letters/Duke/duke_acceptance.html',
         'nyuad': 'utils/misc/decision_letters/NYUAD/nyuad_acceptance.html',
         'princeton': 'utils/misc/decision_letters/Princeton/princeton_acceptance.html',
-        'uchicago': 'utils/misc/decision_letters/Uchicago/uchicago_acceptance.html',
+        'uchicago': 'utils/misc/decision_letters/Uchicago/uchicago_acceptance.html'
     },
     'rejection': {
         'harvard': 'utils/misc/decision_letters/Harvard/harvard_rejection.html',
@@ -25,7 +25,7 @@ university_dictionary = {
         'nyuad': 'utils/misc/decision_letters/NYUAD/nyuad_rejection.html',
         'princeton': 'utils/misc/decision_letters/Princeton/princeton_rejection.html',
         'uchicago': 'utils/misc/decision_letters/Uchicago/uchicago_rejection.html',
-        'stanford': 'utils/misc/decision_letters/Stanford/stanford_rejection.html',
+        'stanford': 'utils/misc/decision_letters/Stanford/stanford_rejection.html'
     }
 }
 
