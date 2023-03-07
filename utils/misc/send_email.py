@@ -8,12 +8,24 @@ env.read_env()
 
 university_dictionary = {
     'acceptance': {
+        'stanford': 'utils/misc/decision_letters/Stanford/stanford_acceptance.html',
         'harvard': 'utils/misc/decision_letters/Harvard/harvard_acceptance.html',
-        'yale': 'utils/misc/decision_letters/Harvard/yale_acceptance.html'
+        'yale': 'utils/misc/decision_letters/Yale/yale_acceptance.html',
+        'dartmouth': 'utils/misc/decision_letters/Dartmouth/dartmouth_acceptance.html',
+        'duke': 'utils/misc/decision_letters/Duke/duke_acceptance.html',
+        'nyuad': 'utils/misc/decision_letters/NYUAD/nyuad_acceptance.html',
+        'princeton': 'utils/misc/decision_letters/Princeton/princeton_acceptance.html',
+        'uchicago': 'utils/misc/decision_letters/Uchicago/uchicago_acceptance.html',
     },
     'rejection': {
         'harvard': 'utils/misc/decision_letters/Harvard/harvard_rejection.html',
-        'yale': 'utils/misc/decision_letters/Harvard/yale_rejection.html'
+        'yale': 'utils/misc/decision_letters/Yale/yale_rejection.html',
+        'dartmouth': 'utils/misc/decision_letters/Dartmouth/dartmouth_rejection.html',
+        'duke': 'utils/misc/decision_letters/Duke/duke_rejection.html',
+        'nyuad': 'utils/misc/decision_letters/NYUAD/nyuad_rejection.html',
+        'princeton': 'utils/misc/decision_letters/Princeton/princeton_rejection.html',
+        'uchicago': 'utils/misc/decision_letters/Uchicago/uchicago_rejection.html',
+        'stanford': 'utils/misc/decision_letters/Stanford/stanford_rejection.html',
     }
 }
 
