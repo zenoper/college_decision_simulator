@@ -106,6 +106,6 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     decision = info.get('decision_type')
     university_cap = university.capitalize()
 
-    send_email(sender_name=university_cap, sender_email="onlinefood.django@gmail.com", receiver_email=email, first_name=first_name, decision=decision, university=university)
+    send_email(sender_name=university_cap, sender_email="collegedecisionsimulator@gmail.com", receiver_email=email, first_name=first_name, decision=decision, university=university)
 
     await state.finish()
