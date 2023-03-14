@@ -13,7 +13,7 @@ async def valera(message: types.Message):
 #Valera
 @dp.message_handler(chat_id="178942136", commands='start')
 async def valera(message: types.Message):
-    await message.answer(f"<b>Hey, Andrew Tate is the real TOPG, not socrates :)</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await message.answer(f"<b>Hey, Andrew Tate is the real TOPG, not Socrates :)</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
 
 #Diyor
 @dp.message_handler(chat_id="2086393228", commands='start')
@@ -37,11 +37,6 @@ async def valera(message: types.Message):
 @dp.message_handler(chat_id="417933861", commands='start')
 async def valera(message: types.Message):
     await message.answer(f"<b>Iyee, Rolton Bosh keb qoptiyu</b> \nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
-
-#Rustam
-@dp.message_handler(chat_id="933388976", commands='start')
-async def valera(message: types.Message):
-    await message.answer(f"<b>Hey, man. Do you want to repeat after me?</b> \nRepeat after me.... \nAshhadu alla....")
 
 #Aleksandr
 @dp.message_handler(chat_id="249794047", commands='start')
