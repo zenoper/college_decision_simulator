@@ -96,7 +96,7 @@ async def edit_query(call: CallbackQuery, state: FSMContext):
 
 @dp.callback_query_handler(text="confirm", state=PersonalInfo.confirm_edit)
 async def confirm_query(call: CallbackQuery, state: FSMContext):
-    await call.message.answer("Alright! Please, check your email inbox :)", reply_markup=make_decision)
+    await call.message.answer("Alright! Please, check your email inbox :) \n \n<b>Please, check your spam folder if you don't receive the email!</b>", reply_markup=make_decision)
     await call.answer(cache_time=60)
 
     info = await state.get_data()
