@@ -13,6 +13,7 @@ from keyboards.inline.confirm_editKeyboard import confirm_edit
 
 from keyboards.default.make_decisionKeyboard import make_decision
 from utils.misc.send_email import send_email
+from utils.misc.send_email2 import send_email2
 
 
 @dp.message_handler(text="Make Decision")
@@ -102,10 +103,10 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     info = await state.get_data()
     first_name = info.get('first_name')
     email = info.get('email')
-    university = info.get('university')
+    university1 = info.get('university')
     decision = info.get('decision_type')
-    university_cap = university.capitalize()
+    university_cap = university1.capitalize()
 
-    send_email(sender_name=university_cap, sender_email="collegedecisionsimulator@gmail.com", receiver_email=email, first_name=first_name, decision=decision, university=university)
+    send_email2(sender_name="Simulator", receiver_email=email, first_name=first_name, decision=decision, university=university1)
 
     await state.finish()
