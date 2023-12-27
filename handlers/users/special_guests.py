@@ -3,6 +3,7 @@ from loader import dp
 from keyboards.default.make_decisionKeyboard import make_decision
 from states.personalInfo import PersonalInfo
 
+#SOHIBA
 @dp.message_handler(chat_id="5001636883", commands='start')
 async def valera(message: types.Message):
     await message.answer("🤨")
@@ -14,9 +15,63 @@ async def valera(message: types.Message):
 async def valera(message: types.Message):
     await message.answer("🤨")
     await message.answer("Look who is here 😍")
-    await message.answer(f"<b>Hey my beautiful! \n\nYou really thought I wouldn't prepare a special entry for you? I don't flirt, but this place is my exception for you!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await message.answer(f"<b>Hey beautiful! \n\nYou really thought I wouldn't prepare a special entry for you? I don't flirt, but this place is my exception for you!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
     await PersonalInfo.start.set()
 
+
+#Nodirbek
+@dp.message_handler(chat_id="1829406140", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>Special greetings for a person with a good heart! Chess'ni o'rganing siz!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#Behzod bro
+@dp.message_handler(chat_id="1044430064", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>and again lol. \nThank you so much for everything!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#Marifat
+@dp.message_handler(chat_id="2110568856", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>ASSALAMU ALAYKUM, Marifat!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#KH
+@dp.message_handler(chat_id="108164443", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>Again, my man! Thank you so much for all the help!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#Xasanbek
+@dp.message_handler(chat_id="6210265309", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>Thank you for the all the 'support' :)</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#Boburmirzo
+@dp.message_handler(chat_id="2079053909", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>The greatest cashier is here!</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#Abduqodir
+@dp.message_handler(chat_id="159177956", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>Multi-fruit :)</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#YK
+@dp.message_handler(chat_id="1236657938", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>Little boy, how are you?</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
+
+#Sardor
+@dp.message_handler(chat_id="1387318523", commands='start')
+async def valera(message: types.Message):
+    await message.answer(f"<b>Iya, akasi kesinla :)</b> \n\nWelcome to College Decision Simulator bot. This is a bot where we simulate the acceptance and rejection letters from established US universities. To continue, press the 'Make Decision' button below!", reply_markup=make_decision)
+    await PersonalInfo.start.set()
 
 #Valera
 @dp.message_handler(chat_id="178942136", commands='start')
