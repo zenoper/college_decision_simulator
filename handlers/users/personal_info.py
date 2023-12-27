@@ -16,21 +16,34 @@ from utils.misc.send_email import send_email
 from utils.misc.send_email2 import send_email2
 
 
-@dp.message_handler(text="Make Decision")
+@dp.message_handler(text="Make Decision", state=PersonalInfo.start)
 async def enter_first_name(message: types.Message):
     await message.answer("Please, share your First name", reply_markup=ReplyKeyboardRemove(selective=True))
     await PersonalInfo.first_name.set()
 
 
-@dp.message_handler(state=PersonalInfo.first_name)
+@dp.message_handler(state=PersonalInfo.start, content_types=types.ContentTypes.ANY)
+async def say_no(message: types.Message):
+    await message.answer("Please, click the button 'Make Decision' below to generate a decision letter!", reply_markup=make_decision)
+
+
+@dp.message_handler(state=PersonalInfo.first_name, content_types=types.ContentTypes.TEXT)
 async def answer_first_name(message: types.Message, state: FSMContext):
     first_name = message.text
-    await state.update_data(
-        {'first_name': first_name}
-    )
+    if len(first_name) <= 3:
+        await message.answer("Cmon! Your name can't be -3 characters long!🤥 \n\nI need your real first name!")
+    else:
+        await state.update_data(
+            {'first_name': first_name}
+        )
 
-    await message.answer("The letter will be sent to you via email. Please, share your email")
-    await PersonalInfo.email.set()
+        await message.answer("The letter will be sent to you via email. \n\nShare your email!")
+        await PersonalInfo.email.set()
+
+
+@dp.message_handler(state=PersonalInfo.first_name, content_types=types.ContentTypes.ANY)
+async def say_no(message: types.Message):
+    await message.answer("Please, use text only.")
 
 EMAIL_REGEX = r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'
 
@@ -46,11 +59,10 @@ async def answer_first_name(message: types.Message, state: FSMContext):
     await PersonalInfo.university.set()
 
 
-@dp.message_handler(state=PersonalInfo.email)
+@dp.message_handler(state=PersonalInfo.email, content_types=types.ContentTypes.ANY)
 async def answer_first_name(message: types.Message):
 
-    await message.answer("Invalid email format. Please, enter valid email!")
-    await PersonalInfo.email.set()
+    await message.answer("BRUUUH, I am just asking for an email. 😕 \n\nNothing more :)")
 
 
 @dp.callback_query_handler(lambda c: c.data in ['stanford', 'harvard', 'yale', 'nyuad', 'uchicago', 'princeton', 'dartmouth', 'duke'], state=PersonalInfo.university)
@@ -61,6 +73,11 @@ async def process_callback_query(call: CallbackQuery, state: FSMContext):
         await call.message.answer("Choose decision type :", reply_markup=decision_type_keyboard)
         await call.answer(cache_time=60)
         await PersonalInfo.decision_type.set()
+
+
+@dp.message_handler(state=PersonalInfo.university, content_types=types.ContentTypes.ANY)
+async def answer_first_name(message: types.Message):
+    await message.answer("😑😑😑 \n\nJust choose one of the universities!", reply_markup=university_list)
 
 
 @dp.callback_query_handler(lambda c: c.data in ['acceptance', 'rejection'], state=PersonalInfo.decision_type)
@@ -87,6 +104,12 @@ async def answer_check(call: CallbackQuery, state: FSMContext):
     await PersonalInfo.confirm_edit.set()
 
 
+@dp.message_handler(state=PersonalInfo.decision_type, content_types=types.ContentTypes.ANY)
+async def answer_first_name(message: types.Message):
+    await message.answer("You are frustrating me! 😡 \n\nClick buttons 'acceptance' or 'rejection'", reply_markup=decision_type_keyboard)
+
+
+
 @dp.callback_query_handler(text="edit", state=PersonalInfo.confirm_edit)
 async def edit_query(call: CallbackQuery, state: FSMContext):
     await call.message.answer("Please, share your First name")
@@ -97,7 +120,7 @@ async def edit_query(call: CallbackQuery, state: FSMContext):
 
 @dp.callback_query_handler(text="confirm", state=PersonalInfo.confirm_edit)
 async def confirm_query(call: CallbackQuery, state: FSMContext):
-    await call.message.answer("Alright! Please, check your email inbox :) \n \n<b>Please, check your spam folder if you don't receive the email!</b>", reply_markup=make_decision)
+    await call.message.answer("Alrighty! Now, check your email inbox :) \n \n<b>‼️ Check your spam folder if you don't receive the email ‼️</b>", reply_markup=make_decision)
     await call.answer(cache_time=60)
 
     info = await state.get_data()
@@ -107,6 +130,23 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     decision = info.get('decision_type')
     university_cap = university1.capitalize()
 
-    send_email2(sender_name="Simulator", receiver_email=email, first_name=first_name, decision=decision, university=university1)
+    send_email2(receiver_email=email, first_name=first_name, decision=decision, university=university1)
 
-    await state.finish()
+    await PersonalInfo.start.set()
+
+@dp.message_handler(state=PersonalInfo.confirm_edit, content_types=types.ContentTypes.ANY)
+async def answer_first_name(message: types.Message, state: FSMContext):
+
+    info = await state.get_data()
+    first_name = info.get('first_name')
+    email = info.get('email')
+    university = info.get('university')
+    decision = info.get('decision_type')
+
+    msg = "Just confirm your info is correct: \n \n"
+    msg += f"First name - {first_name} \n"
+    msg += f"Email - {email} \n"
+    msg += f"University - {university} \n"
+    msg += f"Decision Type - {decision} \n"
+
+    await message.answer(f"BRUHH, again? \n\n{msg} \nOr, I will shoot you in the head!", reply_markup=confirm_edit)

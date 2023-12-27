@@ -2,6 +2,11 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from datetime import datetime
+
+# Get the current date and time
+current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 from environs import Env
 env = Env()
 env.read_env()
@@ -30,7 +35,7 @@ university_dictionary = {
 }
 
 
-def send_email2(sender_name, receiver_email, first_name, decision, university):
+def send_email2(receiver_email, first_name, decision, university):
     # Replace with your SMTP credentials and SES region
     smtp_username = env.str("SMTP_USERNAME")
     smtp_password = env.str("SMTP_PASSWORD")
@@ -44,10 +49,11 @@ def send_email2(sender_name, receiver_email, first_name, decision, university):
 
     # Add dynamic content to HTML body
     html_body = html_body.replace('Dear,', f'Dear {first_name},')
+    html_body = html_body.replace('time_date', f'Dear {current_date},')
 
     # Set up the email message
     message = MIMEMultipart("alternative")
-    message["From"] = f"{sender_name} <{sender_email}>"
+    message["From"] = f"Simulator <{sender_email}>"
     message["To"] = receiver_email
     message["Subject"] = "View Update to your Application!"
     message.attach(MIMEText(html_body, "html"))
