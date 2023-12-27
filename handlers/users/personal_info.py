@@ -1,9 +1,11 @@
 from aiogram import types
-from loader import dp
+from loader import dp, db, bot
 from aiogram.dispatcher import FSMContext
 from aiogram.types import CallbackQuery
 from aiogram.types import ReplyKeyboardRemove
 from aiogram.dispatcher.filters import Regexp
+import asyncpg.exceptions
+from data.config import ADMINS
 
 from states.personalInfo import PersonalInfo
 
@@ -33,8 +35,12 @@ async def answer_first_name(message: types.Message, state: FSMContext):
     if len(first_name) <= 3:
         await message.answer("Cmon! Your name can't be -3 characters long!🤥 \n\nI need your real first name!")
     else:
+        user_name = message.from_user.username
+        telegram_id = message.from_user.id
         await state.update_data(
-            {'first_name': first_name}
+            {'first_name': first_name,
+             "username": user_name,
+             "telegram_id": telegram_id}
         )
 
         await message.answer("The letter will be sent to you via email. \n\nShare your email!")
@@ -131,6 +137,22 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     university_cap = university1.capitalize()
 
     send_email2(receiver_email=email, first_name=first_name, decision=decision, university=university1)
+
+    try:
+        user = await db.add_user(
+            first_name=first_name,
+            username=info.get("username"),
+            telegram_id=info.get("telegram_id"),
+            email=email,
+            university=university1,
+            decision_type=decision
+        )
+    except asyncpg.exceptions.UniqueViolationError:
+        user = await db.select_user(telegram_id=info.get("telegram_id"))
+
+    count = await db.count_users()
+    msg = f"User '{user[1]}' has been added to the database! We now have {count} users."
+    await bot.send_message(chat_id=ADMINS[0], text=msg)
 
     await PersonalInfo.start.set()
 
