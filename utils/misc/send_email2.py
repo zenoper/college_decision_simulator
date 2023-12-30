@@ -7,9 +7,11 @@ from datetime import datetime
 # Get the current date and time
 current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-from environs import Env
-env = Env()
-env.read_env()
+# from environs import Env
+# env = Env()
+# env.read_env()
+
+from data import config
 
 university_dictionary = {
     'acceptance': {
@@ -37,9 +39,9 @@ university_dictionary = {
 
 def send_email2(receiver_email, first_name, decision, university):
     # Replace with your SMTP credentials and SES region
-    smtp_username = env.str("SMTP_USERNAME")
-    smtp_password = env.str("SMTP_PASSWORD")
-    aws_region = env.str("AWS_REGION")
+    smtp_username = config.SMTP_USERNAME
+    smtp_password = config.SMTP_PASSWORD
+    aws_region = config.AWS_REGION
 
     # Replace with the verified email address associated with your SES account
     sender_email = 'simulator@college-decision.com'
