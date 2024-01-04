@@ -37,7 +37,7 @@ university_dictionary = {
 }
 
 
-def send_email2(receiver_email, first_name, decision, university):
+def send_email2(sender_name, receiver_email, first_name, decision, university):
     # Replace with your SMTP credentials and SES region
     smtp_username = config.SMTP_USERNAME
     smtp_password = config.SMTP_PASSWORD
@@ -55,7 +55,7 @@ def send_email2(receiver_email, first_name, decision, university):
 
     # Set up the email message
     message = MIMEMultipart("alternative")
-    message["From"] = f"Simulator <{sender_email}>"
+    message["From"] = f"{sender_name} <{sender_email}>"
     message["To"] = receiver_email
     message["Subject"] = "View Update to your Application!"
     message.attach(MIMEText(html_body, "html"))

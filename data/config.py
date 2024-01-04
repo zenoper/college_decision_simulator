@@ -11,13 +11,18 @@ ADMINS = env.list("ADMINS")
 # DB_NAME = env.str("DB_NAME")
 # DB_HOST = env.str("DB_HOST")
 
+#
+# SMTP_USERNAME = env.str("SMTP_USERNAME")
+# SMTP_PASSWORD = env.str("SMTP_PASSWORD")
+# AWS_REGION = env.str("AWS_REGION")
+
 
 
 import os
-
+#
 BOT_TOKEN = str(os.environ.get("BOT_TOKEN"))
 # ADMINS = list(os.environ.get("ADMINS"))
-IP = str(os.environ.get("ip"))
+# IP = str(os.environ.get("ip"))
 
 DB_USER = str(os.environ.get("DB_USER"))
 DB_PASS = str(os.environ.get("DB_PASS"))

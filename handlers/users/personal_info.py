@@ -120,7 +120,6 @@ async def answer_first_name(message: types.Message):
 async def edit_query(call: CallbackQuery, state: FSMContext):
     await call.message.answer("Please, share your First name")
     await call.answer(cache_time=60)
-    await state.finish()
     await PersonalInfo.first_name.set()
 
 
@@ -136,7 +135,7 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     decision = info.get('decision_type')
     university_cap = university1.capitalize()
 
-    send_email2(receiver_email=email, first_name=first_name, decision=decision, university=university1)
+    send_email2(sender_name=university_cap, receiver_email=email, first_name=first_name, decision=decision, university=university1)
 
     try:
         user = await db.add_user(
