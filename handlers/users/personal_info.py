@@ -133,7 +133,7 @@ async def confirm_query(call: CallbackQuery, state: FSMContext):
     email = info.get('email')
     university1 = info.get('university')
     decision = info.get('decision_type')
-    university_cap = university1.capitalize()
+    university_cap = university1.capitalize() + ' ' + "Office of Undergraduate Admissions"
 
     send_email2(sender_name=university_cap, receiver_email=email, first_name=first_name, decision=decision, university=university1)
 

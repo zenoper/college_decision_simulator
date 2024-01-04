@@ -53,6 +53,9 @@ def send_email2(sender_name, receiver_email, first_name, decision, university):
     html_body = html_body.replace('Dear,', f'Dear {first_name},')
     html_body = html_body.replace('time_date', f'Dear {current_date},')
 
+    if university == 'uchicago':
+        sender_name = "UChicago Office of Undergraduate Admissions"
+
     # Set up the email message
     message = MIMEMultipart("alternative")
     message["From"] = f"{sender_name} <{sender_email}>"
