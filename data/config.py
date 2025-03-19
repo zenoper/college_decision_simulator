@@ -11,10 +11,10 @@ ADMINS = env.list("ADMINS")
 # DB_NAME = env.str("DB_NAME")
 # DB_HOST = env.str("DB_HOST")
 
-#
-# SMTP_USERNAME = env.str("SMTP_USERNAME")
-# SMTP_PASSWORD = env.str("SMTP_PASSWORD")
-# AWS_REGION = env.str("AWS_REGION")
+
+SMTP_USERNAME = env.str("SMTP_USERNAME")
+SMTP_PASSWORD = env.str("SMTP_PASSWORD")
+AWS_REGION = env.str("AWS_REGION")
 
 
 
