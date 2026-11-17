@@ -4,11 +4,29 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-aiogram = "~=2.14"
-environs = "~=8.0.0"
-asyncpg = "*"
+aiogram = "==2.14"
+aiohttp = "==3.14.5"
+asyncpg = "==0.29.0"
+environs = "==8.0.0"
+
+# Match requirements.txt so Pipenv and pip install the same tested versions.
+aiohappyeyeballs = "==2.7.1"
+aiosignal = "==1.4.0"
+async-timeout = "==4.0.3"
+attrs = "==23.1.0"
+babel = "==2.14.0"
+certifi = "==2023.11.17"
+frozenlist = "==1.4.1"
+idna = "==3.6"
+marshmallow = "==3.20.1"
+multidict = "==6.0.4"
+packaging = "==23.2"
+propcache = "==0.5.4"
+python-dotenv = "==1.0.0"
+typing-extensions = {version = "==4.16.0", markers = "python_version < '3.13'"}
+yarl = "==1.25.1"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10.2"
+python_version = "3.10"
